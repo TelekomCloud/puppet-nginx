@@ -64,11 +64,11 @@ define nginx::resource::upstream (
   }
 
   concat { "${nginx::config::conf_dir}/conf.d/${name}-upstream.conf":
-    ensure  => $ensure ? {
-      'absent' => absent,
-      'file'   => present,
-      default  => present,
-    },
+    #ensure  => $ensure ? {
+    #  'absent' => absent,
+    #  'file'   => present,
+    #  default  => present,
+    #},
     notify  => Class['nginx::service'],
   }
 
